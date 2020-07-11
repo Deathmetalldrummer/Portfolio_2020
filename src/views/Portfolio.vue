@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-carousel(show-arrows-on-hover height="100vh" :hide-delimiter-background="true" :hide-delimiters="false")
+  v-carousel(show-arrows-on-hover height="100vh" :hide-delimiter-background="true" :hide-delimiters="false").particleLayer
     v-carousel-item(v-for='(item,i) in portfolio' :key='i').carouselItem
       v-container(fluid).height
         v-row(align="center" justify="center").height

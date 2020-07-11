@@ -1,49 +1,51 @@
-<template lang="pug">
+<template lang="pug"particleLayer>
     .content
       v-container(fluid).pa-0
         v-row(no-gutters)
           v-col(xs="12" sm="12" md="12")
-            .display-2 Контакты
-            .subtitle-1 Звоните пишите!
+            .display-2.particleLayer Контакты
+            .subtitle-1.particleLayer Звоните пишите!
+            div
+              br
           v-col(xs="12" sm="6" md="5")
             v-form(ref='form' v-model='valid' :lazy-validation='lazy').pt-2
-              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя')
-              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required)
-              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст')
-              v-btn(:disabled='valid' light color='white' @click='validate' block)
+              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя').particleLayer
+              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required).particleLayer
+              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст').particleLayer
+              v-btn(:disabled='valid' light color='white' @click='validate' block).particleLayer
                 | Отправить
 
-          v-col(xs="12" offset-md="1" sm="6" md="6")
+          v-col(xs="12" offset-md="1" sm="4" md="4")
             v-list.pa-0
-              v-list-item
+              v-list-item.particleLayer
                 v-list-item-icon
                   v-icon(large) mdi-map-marker-outline
                 v-list-item-content
                   v-list-item-title Location
                   v-list-item-subtitle Bishkek/Kyrgyzstan
 
-              v-list-item
+              v-list-item.particleLayer
                 v-list-item-icon
                   v-icon(large) mdi-email
                 v-list-item-content
                   v-list-item-title E-mail
                   v-list-item-subtitle kirk.terekhin@gmail.com
 
-              v-list-item
+              v-list-item.particleLayer
                 v-list-item-icon
                   v-icon(large) mdi-phone
                 v-list-item-content
                   v-list-item-title Phone
                   v-list-item-subtitle +996 778 36 33 80
 
-              v-list-item
+              v-list-item.particleLayer
                 v-list-item-icon
                   v-icon(large) mdi-telegram
                 v-list-item-content
                   v-list-item-title Telegram
                   v-list-item-subtitle kirk.terekhin
 
-              v-list-item
+              v-list-item.particleLayer
                 v-list-item-icon
                   v-icon(large) mdi-skype
                 v-list-item-content

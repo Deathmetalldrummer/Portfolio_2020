@@ -1,8 +1,8 @@
 <template lang="pug">
   .content
-    .display-1 About Me
-    .subtitle-1 Subtitle
-    .body-1 Text
+    .display-1.particleLayer About Me
+    .subtitle-1.particleLayer Subtitle
+    .body-1.particleLayer Text
 </template>
 
 <script>

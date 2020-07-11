@@ -2,14 +2,13 @@
   div.timeline
     v-timeline
       v-timeline-item(v-for="item in experience" color="grey darken-1" icon-color="grey darken-4" icon="mdi--briefcase-outline")
-        span(slot="opposite").font-regular
+        span(slot="opposite").font-regular.particleLayer
           | {{item.from}}
           br
           | {{item.to}}
           br
           | {{item.sum}}
-
-        v-card.elevation-10
+        v-card.elevation-10.particleLayer
           v-card-title.title {{item.company}}
           v-card-subtitle.subtitle-1 {{item.companyInfo}}
           v-card-text
@@ -36,7 +35,7 @@
 						description: [
 							'Исправил множество ошибок в стилях веб-приложения.',
 							'Раздробил монолитный код на компоненты (React.js).',
-							'Разрабатывал компоненты для CRM системы под Angular 7+'
+							'Вел активную разработку компонентов для CRM системы под Angular 7+'
 						]
 					},
 					{
@@ -48,7 +47,7 @@
 						position: 'Frontend-разработчик',
 						description: [
 							'Изучил фрэймворк Vue.js,',
-							'Дорабатывал банковскую CRM систему на Vue.js.'
+							'Работал над банковской CRM системой на Vue.js.'
 						]
 					},
 					{
