@@ -1,10 +1,10 @@
 <template lang="pug">
-  v-card(raised elevation="10").content
-    v-card-title.display-2 Контакты
-    v-card-subtitle Звоните пишите!
-    v-card-text
+    .content
       v-container(fluid).pa-0
         v-row(no-gutters)
+          v-col(xs="12" sm="12" md="12")
+            .display-2 Контакты
+            .subtitle-1 Звоните пишите!
           v-col(xs="12" sm="6" md="5")
             v-form(ref='form' v-model='valid' :lazy-validation='lazy').pt-2
               v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя')

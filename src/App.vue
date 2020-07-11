@@ -20,13 +20,14 @@
   }
 
   .content {
-    margin: 10px;
-    padding: 10px;
+    padding: 2em 2.5em;
     min-height: calc(100% - 20px);
   }
 
   .nav-drawer .v-responsive__content {
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
   }
-
+  .theme--dark.v-sheet {
+    background-color: transparent;
+  }
 </style>

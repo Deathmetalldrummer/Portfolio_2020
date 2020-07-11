@@ -1,12 +1,11 @@
 <template lang="pug">
-  v-card(raised elevation="10").content
-    v-card-title.display-2 Навыки
-    v-card-subtitle Мои суперспособности =)
-    v-card-text
-      .pb-3(v-for="i in skills")
-        .title.pb-2 {{i.title}}
-        v-hover(v-slot:default="{ hover }" v-for="x in i.items")
-          v-btn(tag="span" :color="!hover ? 'grey darken-1' : 'grey lighten-5'" outlined rounded small).mr-3.mb-3 {{x}}
+  .content
+    .display-2 Навыки
+    .subtitle-1 Мои суперспособности =)
+    .pb-3(v-for="i in skills")
+      .title.pb-2 {{i.title}}
+      v-hover(v-slot:default="{ hover }" v-for="x in i.items")
+        v-btn(tag="span" :color="!hover ? 'grey darken-1' : 'grey lighten-5'" outlined rounded small).mr-3.mb-3 {{x}}
 
 </template>
 

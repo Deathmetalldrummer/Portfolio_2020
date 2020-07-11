@@ -1,8 +1,8 @@
 <template lang="pug">
-  v-card(raised elevation="10").content
-    v-card-title.display-1 About Me
-    v-card-subtitle.body-1 Subtitle
-    v-card-text Text
+  .content
+    .display-1 About Me
+    .subtitle-1 Subtitle
+    .body-1 Text
 </template>
 
 <script>
