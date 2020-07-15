@@ -5,12 +5,17 @@ import Experience from '../views/Experience'
 import Skills from '../views/Skills'
 import Portfolio from '../views/Portfolio'
 import Contact from '../views/Contact'
+import Main from '../views/Main'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '',
+    name: 'Main',
+    component: Main
+  }, {
+    path: 'about',
     name: 'About',
     component: About
   }, {

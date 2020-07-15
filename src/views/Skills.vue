@@ -2,6 +2,7 @@
   .content
     .display-2.particleLayer Навыки
     .subtitle-1.particleLayer Мои суперспособности =)
+    br
     .pb-3(v-for="i in skills")
       .title.pb-2.particleLayer {{i.title}}
       v-hover(v-slot:default="{ hover }" v-for="x in i.items").particleLayer

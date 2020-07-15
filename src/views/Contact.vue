@@ -8,11 +8,11 @@
             div
               br
           v-col(xs="12" sm="6" md="5")
-            v-form(ref='form' v-model='valid' :lazy-validation='lazy').pt-2
-              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя').particleLayer
-              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required).particleLayer
-              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст').particleLayer
-              v-btn(:disabled='valid' light color='white' @click='validate' block).particleLayer
+            v-form(ref='form' v-model='valid' :lazy-validation='lazy' :disabled="true").pt-2
+              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя' name="name").particleLayer
+              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required name="email").particleLayer
+              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст' name="text").particleLayer
+              v-btn(:disabled='!invalid' light color='white' @click='validate' block type="submit").particleLayer
                 | Отправить
 
           v-col(xs="12" offset-md="1" sm="4" md="4")
@@ -26,28 +26,32 @@
 
               v-list-item.particleLayer
                 v-list-item-icon
-                  v-icon(large) mdi-email
+                  a(href="mailto:kirk.terekhin@gmail.com" target="_blank").linkIcon
+                    v-icon(large) mdi-email
                 v-list-item-content
                   v-list-item-title E-mail
                   v-list-item-subtitle kirk.terekhin@gmail.com
 
               v-list-item.particleLayer
                 v-list-item-icon
-                  v-icon(large) mdi-phone
+                  a(href="tel:+996778363380" target="_blank").linkIcon
+                    v-icon(large) mdi-phone
                 v-list-item-content
                   v-list-item-title Phone
                   v-list-item-subtitle +996 778 36 33 80
 
               v-list-item.particleLayer
                 v-list-item-icon
-                  v-icon(large) mdi-telegram
+                  a(href="tg://resolve?domain=kirk_terekhin" target="_blank").linkIcon
+                    v-icon(large) mdi-telegram
                 v-list-item-content
                   v-list-item-title Telegram
-                  v-list-item-subtitle kirk.terekhin
+                  v-list-item-subtitle kirk_terekhin
 
               v-list-item.particleLayer
                 v-list-item-icon
-                  v-icon(large) mdi-skype
+                  a(href="skype:kirk.terekhin" target="_blank").linkIcon
+                    v-icon(large) mdi-skype
                 v-list-item-content
                   v-list-item-title Skype
                   v-list-item-subtitle kirk.terekhin
@@ -83,4 +87,8 @@
 </script>
 
 <style scoped lang='sass'>
+  .linkIcon
+    text-decoration: none
+    &:hover
+      animation: tada 2s both infinite
 </style>

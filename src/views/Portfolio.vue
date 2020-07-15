@@ -9,8 +9,8 @@
               br
               .body-2(v-html="item.desc")
               br
-              v-btn(:href="item.view" target="_blank" light).mr-2 View
-              v-btn(:href="item.code" target="_blank" light) Code
+              v-btn(:href="item.view" target="_blank" outlined).mr-2 View
+              v-btn(:href="item.code" target="_blank" outlined) Code
           v-col(xs="12" sm="6")
             img(:src="item.src" :alt="item.alt").carouselItem__image
 </template>

@@ -6,8 +6,8 @@
           img(src='https://sun9-57.userapi.com/c858232/v858232044/6e65b/njwWalSDTkM.jpg')
       v-list-item.text-center
         v-list-item-content
-          v-list-item-title.title &Tcy;&iecy;&rcy;&iocy;&khcy;&icy;&ncy; &Kcy;&icy;&rcy;&icy;&lcy;&lcy;
-          v-list-item-subtitle.subtitle &Pcy;&softcy;&yacy;&ncy;&ycy;&jcy; Vue.js &mcy;&acy;&scy;&tcy;&iecy;&rcy;
+          v-list-item-title.title Терёхин Кирилл
+          v-list-item-subtitle.subtitle Пьяный Vue.js мастер
       v-list-item(v-for='item in items' :key='item.title' link :to="item.link")
         v-list-item-content
           v-list-item-title {{ item.title }}
@@ -20,23 +20,23 @@
 			return {
 				items: [
 					{
-						title: 'About Me',
+						title: 'Главная',
 						link: '/'
 					},
 					{
-						title: 'Experience',
+						title: 'Опыт',
 						link: '/experience'
 					},
 					{
-						title: 'Skills',
+						title: 'Навыки',
 						link: '/skills'
 					},
 					{
-						title: 'Portfolio',
+						title: 'Портфолио',
 						link: '/portfolio'
 					},
 					{
-						title: 'Contact',
+						title: 'Контакты',
 						link: '/contact'
 					}
 				]
