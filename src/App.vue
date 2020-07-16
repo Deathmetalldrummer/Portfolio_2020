@@ -62,7 +62,8 @@
   .nav-drawer .v-responsive__content {
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
   }
-  .theme--dark.v-sheet {
+
+  .v-sheet.v-list:not(.v-sheet--outlined) {
     background-color: transparent;
   }
 
