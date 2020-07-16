@@ -19,11 +19,12 @@
 	export default {
 		name: 'Portfolio',
 		data () {
+			const publicPath = process.env.BASE_URL
 			return {
 				portfolio: [
 					{
 						number: 1,
-						src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Agency.jpg',
+						src: publicPath + './images/Agency.jpg',
 						alt: 'Agency',
 						name: 'Agency',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/Agency/',
@@ -43,7 +44,7 @@
 					},
 					{
 						number: 2,
-						src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/CorporateLandingPage.jpg',
+						src: publicPath + './images/CorporateLandingPage.jpg',
 						alt: 'Corporate Landing Page',
 						name: 'Corporate Landing Page',
 						code: 'https://github.com/Kirk-Terekhin/Corporate-Landing-Page/',
@@ -63,7 +64,7 @@
 					},
 					{
             number: 3,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Logstyle.jpg',
+            src: publicPath + './images/Logstyle.jpg',
 						alt: 'Log-style',
 						name: 'Log-style',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/logstyle/',
@@ -84,7 +85,7 @@
 					},
           {
             number: 4,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Gift.jpg',
+            src: publicPath + './images/Gift.jpg',
 						alt: 'Gift.kg',
 						name: 'Gift.kg',
 						code: 'https://github.com/Kirk-Terekhin/Gift/',
@@ -102,7 +103,7 @@
 					},
           {
             number: 5,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/TZ.jpg',
+            src: publicPath + './images/TZ.jpg',
 						alt: 'TZ',
 						name: 'TZ',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/TZ/',
@@ -121,7 +122,7 @@
 					},
           {
             number: 6,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/LandingPage.jpg',
+            src: publicPath + './images/LandingPage.jpg',
 						alt: 'Landing Page',
 						name: 'Landing Page',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/LandingPage/',
@@ -141,7 +142,7 @@
 					},
           {
             number: 7,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/NightVision.jpg',
+            src: publicPath + './images/NightVision.jpg',
 						alt: 'NightVision',
 						name: 'NightVision',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/NightVision/',
@@ -161,7 +162,7 @@
 					},
           {
             number: 8,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Bootstrap.jpg',
+            src: publicPath + './images/Bootstrap.jpg',
 						alt: 'Bootstrap',
 						name: 'Bootstrap',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/Bootstrap/',
@@ -181,7 +182,7 @@
 					},
           {
             number: 9,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Sakura.jpg',
+            src: publicPath + './images/Sakura.jpg',
 						alt: 'Sakura',
 						name: 'Sakura',
 						code: 'https://github.com/Kirk-Terekhin/Sakura/',
@@ -201,7 +202,7 @@
 					},
           {
             number: 10,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/PageOnlineStore.jpg',
+            src: publicPath + './images/PageOnlineStore.jpg',
 						alt: 'PageOnlineStore',
 						name: 'PageOnlineStore',
 						code: 'https://github.com/Kirk-Terekhin/PageOnlineStore/',
@@ -219,7 +220,7 @@
 					},
           {
             number: 11,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Karacenter.jpg',
+            src: publicPath + './images/Karacenter.jpg',
 						alt: 'KaraCenter',
 						name: 'KaraCenter',
 						code: 'https://github.com/Kirk-Terekhin/KaraCenter',
@@ -240,7 +241,7 @@
 					},
           {
             number: 12,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Connect.jpg',
+            src: publicPath + './images/Connect.jpg',
 						alt: 'Connect.kg',
 						name: 'Connect.kg',
 						code: 'https://github.com/Kirk-Terekhin/Connect',
@@ -261,7 +262,7 @@
 					},
           {
             number: 13,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Family.jpg',
+            src: publicPath + './images/Family.jpg',
 						alt: 'Family.kg',
 						name: 'Family.kg',
 						code: 'https://github.com/Kirk-Terekhin/Family',
@@ -282,7 +283,7 @@
 					},
           {
             number: 14,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/Toe-to-Toes.jpg',
+            src: publicPath + './images/Toe-to-Toes.jpg',
 						alt: 'Toe to Toes',
 						name: 'Toe to Toes',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/logstyle/',
@@ -299,7 +300,7 @@
 					},
           {
             number: 15,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/DrumTab.jpg',
+            src: publicPath + './images/DrumTab.jpg',
 						alt: 'Drum Tab',
 						name: 'Drum Tab',
 						code: 'https://github.com/Kirk-Terekhin/Drum-Tab',
@@ -317,7 +318,7 @@
 					},
           {
             number: 16,
-            src: 'https://kirk-terekhin.github.io/source/build/pictures/sites/YgarockAPP.jpg',
+            src: publicPath + './images/YgarockAPP.jpg',
 						alt: 'YgarockAPP',
 						name: 'YgarockAPP',
 						code: 'https://github.com/Deathmetalldrummer/YgarockAPP/',
