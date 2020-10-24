@@ -8,11 +8,13 @@
             div
               br
           v-col(xs="12" sm="6" md="5")
-            v-form(ref='form' v-model='valid' :lazy-validation='lazy' :disabled="true").pt-2
-              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя' name="name").particleLayer
-              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required name="email").particleLayer
-              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст' name="text").particleLayer
-              v-btn(:disabled='!invalid' light color='white' @click='validate' block type="submit").particleLayer
+            .body-1(v-html="sendSuccess" v-if="sendSuccess")
+            v-form(v-else ref='form' v-model='valid' :lazy-validation='lazy' disabled).pt-2
+              v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя' name="name")
+              v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required name="email")
+              v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст' name="text")
+              p(v-html="sendError" v-if="sendError").red--text
+              v-btn(:disabled='!valid' light color='white' @click='send($event)' block type="submit")
                 | Отправить
 
           v-col(xs="12" offset-md="1" sm="4" md="4")
@@ -78,9 +80,22 @@
 				lazy: false
 			}
 		},
+		computed: {
+			sendSuccess () { return this.$store.getters.sendSuccess },
+			sendError () { return this.$store.getters.sendError }
+		},
 		methods: {
-			validate () {
+			send ($event) {
+				$event.preventDefault()
 				this.$refs.form.validate()
+				if (this.valid) {
+					const payload = {
+						name: this.name,
+						text: this.text,
+						email: this.email
+					}
+					this.$store.dispatch('sendMail', payload)
+				}
 			}
 		}
 	}
