@@ -11,8 +11,8 @@
               ul
                 li(v-for="tech in item.tech") {{tech}}
               br
-              v-btn(v-if='item.view' :href="item.view" target="_blank" outlined).mr-2 View
-              v-btn(v-if='item.code' :href="item.code" target="_blank" outlined) Code
+              v-btn(v-if='item.view' :href="item.view" target="_blank" outlined).portfolio__btn.mr-2 View
+              v-btn(v-if='item.code' :href="item.code" target="_blank" outlined).portfolio__btn Code
           v-col(xs="12" sm="6")
             img(:src="item.src" :alt="item.alt").carouselItem__image
 </template>
@@ -24,6 +24,15 @@
 			const publicPath = process.env.BASE_URL
 			return {
 				portfolio: [
+					{
+						src: publicPath + './images/TimeWEBtest.png',
+						alt: 'TimeWEB test',
+						name: 'TimeWEB test',
+						code: 'https://github.com/Deathmetalldrummer/TimewebTest',
+						view: 'https://timewebtest-ecfdd.web.app/',
+						desc: 'Тестовое задание для TimeWEB: сделать небольшой аналог тильды<br />Октябрь 2020',
+						tech: ['Vue', 'Vuex', 'Vuetify', 'Firebase']
+					},
 					{
 						src: publicPath + './images/RNTO.jpg',
 						alt: 'RNTO',
