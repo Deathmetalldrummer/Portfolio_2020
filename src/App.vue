@@ -114,4 +114,28 @@
     transform: translateX(15em);
     opacity: 0;
   }
+
+  @media (max-width: 767px) {
+    .v-timeline-item__divider {
+      padding: 8px;
+    }
+    .v-timeline--dense .v-timeline-item__divider {
+      min-width: 50px !important;
+    }
+    .v-timeline--dense .v-timeline-item__body {
+      max-width: calc(100% - 50px) !important;
+    }
+    .v-timeline--dense:not(.v-timeline--reverse):before {
+      left: calc(25px - 1px) !important;
+    }
+    .portfolioBox {
+      .v-carousel__controls,
+      .v-window__container,
+      .v-carousel__item,
+      .particleLayer {
+        height: auto !important;
+        position: relative !important;
+      }
+    }
+  }
 </style>

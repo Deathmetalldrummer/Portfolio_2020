@@ -29,9 +29,15 @@
     justify-content: center
     align-items: center
   .main__title
+    text-align: center
     font-size: 300%
+    @media (max-width: 768px)
+      font-size: 200%
   .main__subtitle
-    font-size: 170%
+    text-align: center
+    font-size: 140%
+    @media (max-width: 768px)
+      font-size: 120%
   .main__btnText
     margin-right: 0.5em
 </style>

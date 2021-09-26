@@ -1,5 +1,7 @@
 <template lang="pug">
-  v-navigation-drawer(:src='bg' app mobile-breakpoint="768").nav-drawer
+div
+  v-app-bar-nav-icon(@click="drawer = !drawer" fixed right x-large v-if="$vuetify.breakpoint.width < 768").drawerToggle
+  v-navigation-drawer(v-model="drawer" :src='bg' app mobile-breakpoint="768").nav-drawer
     v-list(link).text-center
       v-list-item.justify-center
         v-list-item-avatar.avatar(size='150')
@@ -18,6 +20,7 @@
 		name: 'Drawer',
 		data () {
 			return {
+				drawer: this.$vuetify.breakpoint.width >= 768,
 				items: [
 					{
 						title: 'Главная',
@@ -46,7 +49,7 @@
 			bg () {
 				return {
 					gradient: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))',
-					src: 'https://demos.creative-tim.com/material-dashboard-pro/assets/img/sidebar-1.jpg'
+					src: './images/sidebar_bg/sidebar_bg1.jpg'
 				}
 			}
 		}
@@ -54,6 +57,11 @@
 </script>
 
 <style scoped lang="sass">
+  .nav-drawer
+    z-index: 1000
+  .drawerToggle
+    top: 16px
+    z-index: 1001
   .avatar
     margin: 0 !important
 </style>

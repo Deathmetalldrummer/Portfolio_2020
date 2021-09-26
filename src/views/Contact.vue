@@ -1,15 +1,14 @@
 <template lang="pug"particleLayer>
     .content
       v-container(fluid).pa-0
-        v-row(no-gutters)
+        v-row(no-gutters).mb-5
           v-col(xs="12" sm="12" md="12")
             .display-2.particleLayer Контакты
             .subtitle-1.particleLayer Звоните пишите!
-            div
-              br
-          v-col(xs="12" sm="6" md="5")
+        v-row(no-gutters)
+          v-col(xs="12" md="5" v-if="!mobileSM")
             .body-1(v-html="sendSuccess" v-if="sendSuccess")
-            v-form(v-else ref='form' v-model='valid' :lazy-validation='lazy' disabled).pt-2
+            v-form(v-else ref='form' v-model='valid' :lazy-validation='lazy' disabled).formDisabled.pt-2
               v-text-field(v-model='name' dense outlined :counter='32' :rules='nameRules' label='Имя' name="name")
               v-text-field(v-model='email' dense outlined :rules='emailRules' label='Мыло' required name="email")
               v-textarea(v-model='text' dense outlined :rules='textRules' label='Текст' name="text")
@@ -17,7 +16,7 @@
               v-btn(:disabled='!valid' light color='white' @click='send($event)' block type="submit")
                 | Отправить
 
-          v-col(xs="12" offset-md="1" sm="4" md="4")
+          v-col(xs="12" lg="5" :md="!mobileSM && 6" :offset-md="!mobileSM ? 1 : 0")
             v-list.pa-0
               v-list-item.particleLayer
                 v-list-item-icon
@@ -44,8 +43,9 @@
 
               v-list-item.particleLayer
                 v-list-item-icon
-                  a(href="tg://resolve?domain=kirk_terekhin" target="_blank").linkIcon
-                    v-icon(large) mdi-telegram
+                  a(href="tg://resolve?domain=kirk_terekhin" target="_blank").linkIcon.linkIcon_telegram
+                    Icons(name="telegram" class="icon_telegram")
+
                 v-list-item-content
                   v-list-item-title Telegram
                   v-list-item-subtitle kirk_terekhin
@@ -61,8 +61,13 @@
 </template>
 
 <script>
+import Icons from '../components/Icons'
+
 	export default {
 		name: 'Contact',
+		components: {
+				Icons
+		},
 		data () {
 			return {
 				valid: true,
@@ -82,7 +87,8 @@
 		},
 		computed: {
 			sendSuccess () { return this.$store.getters.sendSuccess },
-			sendError () { return this.$store.getters.sendError }
+			sendError () { return this.$store.getters.sendError },
+			mobileSM () { return this.$vuetify.breakpoint.width < 1024 }
 		},
 		methods: {
 			send ($event) {
@@ -102,6 +108,13 @@
 </script>
 
 <style scoped lang='sass'>
+  .formDisabled
+    opacity: 0.3
+  .linkIcon_telegram
+    width: 2em
+    color: #fff
+  .icon_telegram
+    width: 100%
   .linkIcon
     text-decoration: none
     &:hover

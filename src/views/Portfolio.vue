@@ -1,9 +1,11 @@
 <template lang="pug">
+.portfolioBox
+  ImageGallery(v-if="isShowGallery" :isShow="isShowGallery", :src="imagesForGallery" @hide="isShowGallery = false, imagesForGallery = null").imageGallery
   v-carousel(show-arrows-on-hover height="100vh" :hide-delimiter-background="true" :hide-delimiters="false").particleLayer
     v-carousel-item(v-for='(item,i) in portfolio' :key='i').carouselItem
       v-container(fluid).height
-        v-row(align="center" justify="center").height
-          v-col(xs="12" sm="6")
+        v-row(align="center" justify="center" :class="mobile ? 'flex-column' : 'height'")
+          v-col
             .portfolio__description
               h3.headline {{item.name}}
               br
@@ -13,19 +15,31 @@
               br
               v-btn(v-if='item.view' :href="item.view" target="_blank" outlined).portfolio__btn.mr-2 View
               v-btn(v-if='item.code' :href="item.code" target="_blank" outlined).portfolio__btn Code
-          v-col(xs="12" sm="6")
-            img(:src="item.src" :alt="item.alt").carouselItem__image
+          v-col(:class="mobile ? 'order-first' : ''")
+            img(:src="item.src" :alt="item.alt" @click="showGallery(item.gallery)").carouselItem__image
 </template>
 
 <script>
+	import ImageGallery from '../components/ImageGallery'
+
 	export default {
 		name: 'Portfolio',
+		components: {
+			ImageGallery
+		},
 		data () {
 			const publicPath = process.env.BASE_URL
 			return {
+				isShowGallery: false,
+				imagesForGallery: null,
 				portfolio: [
 					{
 						src: publicPath + './images/TimeWEBtest.png',
+						gallery: [publicPath + './images/TimeWEBtest.png',
+										publicPath + './images/TimeWEBtest/TimeWEBtest_1.jpg',
+										publicPath + './images/TimeWEBtest/TimeWEBtest_2.jpg',
+										publicPath + './images/TimeWEBtest/TimeWEBtest_3.jpg',
+										publicPath + './images/TimeWEBtest/TimeWEBtest_4.jpg'],
 						alt: 'TimeWEB test',
 						name: 'TimeWEB test',
 						code: 'https://github.com/Deathmetalldrummer/TimewebTest',
@@ -35,6 +49,15 @@
 					},
 					{
 						src: publicPath + './images/RNTO.jpg',
+						gallery: [publicPath + './images/RNTO.jpg'
+								// publicPath + './images/RNTO/RNTO_1.png',
+								// publicPath + './images/RNTO/RNTO_2.png',
+								// publicPath + './images/RNTO/RNTO_3.png',
+								// publicPath + './images/RNTO/RNTO_4.png',
+								// publicPath + './images/RNTO/RNTO_5.png',
+								// publicPath + './images/RNTO/RNTO_6.png',
+								// publicPath + './images/RNTO/RNTO_7.png'
+								],
 						alt: 'RNTO',
 						name: 'RNTO',
 						code: null,
@@ -44,6 +67,7 @@
 					},
 					{
 						src: publicPath + './images/TableUI.png',
+						gallery: [publicPath + './images/TableUI.png'],
 						alt: 'TableUI',
 						name: 'Table UI',
 						code: 'https://github.com/Deathmetalldrummer/TableUI',
@@ -53,6 +77,7 @@
 					},
 					{
 						src: publicPath + './images/GitHubSearch.png',
+						gallery: [publicPath + './images/GitHubSearch.png'],
 						alt: 'GitHubSearch',
 						name: 'GitHubSearch',
 						code: 'https://github.com/Deathmetalldrummer/GitHubSearch',
@@ -61,7 +86,29 @@
 						tech: ['Angular 9', 'NgRx', 'Material Angular', 'GitHub API']
 					},
 					{
+						src: publicPath + './images/SteamConference.jpg',
+						gallery: [publicPath + './images/SteamConference.jpg'],
+						alt: 'Steam Conference',
+						name: 'Steam Conference',
+						code: 'https://github.com/Deathmetalldrummer/Steam-Conference',
+						view: 'https://deathmetalldrummer.github.io/Steam-Conference/',
+						desc: 'Верстка лэндинга для практики.<br />2020-2021',
+						tech: ['HTML5', 'CSS3', 'Adaptive', 'Responsive', 'Gulp', '8 Themes']
+					},
+					{
+						src: publicPath + './images/Bakery.jpg',
+						gallery: [publicPath + './images/Bakery.jpg',
+						publicPath + './images/Bakery/Bakery_1.jpg'],
+						alt: 'Bakery',
+						name: 'Bakery',
+						code: 'https://github.com/Deathmetalldrummer/Bakery',
+						view: 'https://deathmetalldrummer.github.io/Bakery/source/build/',
+						desc: 'Bakery <br />Июнь-Август 2019',
+						tech: ['HTML5', 'CSS3', 'Pug', 'Sass', 'JS', 'jQuery', 'Gulp 4', 'Adaptive fonts']
+					},
+					{
 						src: publicPath + './images/Agency.jpg',
+						gallery: [publicPath + './images/Agency.jpg'],
 						alt: 'Agency',
 						name: 'Agency',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/Agency/',
@@ -71,6 +118,7 @@
 					},
 					{
 						src: publicPath + './images/CorporateLandingPage.jpg',
+						gallery: [publicPath + './images/CorporateLandingPage.jpg'],
 						alt: 'Corporate Landing Page',
 						name: 'Corporate Landing Page',
 						code: 'https://github.com/Kirk-Terekhin/Corporate-Landing-Page/',
@@ -80,6 +128,7 @@
 					},
 					{
 						src: publicPath + './images/Logstyle.jpg',
+						gallery: [publicPath + './images/Logstyle.jpg'],
 						alt: 'Log-style',
 						name: 'Log-style',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/logstyle/',
@@ -89,6 +138,13 @@
 					},
 					{
 						src: publicPath + './images/Gift.jpg',
+						gallery: [publicPath + './images/Gift.jpg',
+										publicPath + './images/Gift/Gift_1.jpg',
+										publicPath + './images/Gift/Gift_2.jpg',
+										publicPath + './images/Gift/Gift_3.jpg',
+										publicPath + './images/Gift/Gift_4.jpg',
+										publicPath + './images/Gift/Gift_5.jpg',
+										publicPath + './images/Gift/Gift_6.jpg'],
 						alt: 'Gift.kg',
 						name: 'Gift.kg',
 						code: 'https://github.com/Kirk-Terekhin/Gift/',
@@ -98,6 +154,7 @@
 					},
 					{
 						src: publicPath + './images/TZ.jpg',
+						gallery: [publicPath + './images/TZ.jpg'],
 						alt: 'TZ',
 						name: 'TZ',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/TZ/',
@@ -107,6 +164,7 @@
 					},
 					{
 						src: publicPath + './images/LandingPage.jpg',
+						gallery: [publicPath + './images/LandingPage.jpg'],
 						alt: 'Landing Page',
 						name: 'Landing Page',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/LandingPage/',
@@ -116,6 +174,7 @@
 					},
 					{
 						src: publicPath + './images/NightVision.jpg',
+						gallery: [publicPath + './images/NightVision.jpg'],
 						alt: 'NightVision',
 						name: 'NightVision',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/NightVision/',
@@ -125,6 +184,7 @@
 					},
 					{
 						src: publicPath + './images/Bootstrap.jpg',
+						gallery: [publicPath + './images/Bootstrap.jpg'],
 						alt: 'Bootstrap',
 						name: 'Bootstrap',
 						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/Bootstrap/',
@@ -134,6 +194,10 @@
 					},
 					{
 						src: publicPath + './images/Sakura.jpg',
+						gallery: [publicPath + './images/Sakura.jpg',
+										publicPath + './images/Sakura/Sakura_1.jpg',
+										publicPath + './images/Sakura/Sakura_2.jpg',
+										publicPath + './images/Sakura/Sakura_3.jpg'],
 						alt: 'Sakura',
 						name: 'Sakura',
 						code: 'https://github.com/Kirk-Terekhin/Sakura/',
@@ -143,6 +207,7 @@
 					},
 					{
 						src: publicPath + './images/PageOnlineStore.jpg',
+						gallery: [publicPath + './images/PageOnlineStore.jpg'],
 						alt: 'PageOnlineStore',
 						name: 'PageOnlineStore',
 						code: 'https://github.com/Kirk-Terekhin/PageOnlineStore/',
@@ -152,6 +217,7 @@
 					},
 					{
 						src: publicPath + './images/Karacenter.jpg',
+						gallery: [publicPath + './images/Karacenter.jpg'],
 						alt: 'KaraCenter',
 						name: 'KaraCenter',
 						code: 'https://github.com/Kirk-Terekhin/KaraCenter',
@@ -161,6 +227,9 @@
 					},
 					{
 						src: publicPath + './images/Connect.jpg',
+						gallery: [publicPath + './images/Connect.jpg',
+										publicPath + './images/Connect/Connect_1.jpg',
+										publicPath + './images/Connect/Connect_2.jpg'],
 						alt: 'Connect.kg',
 						name: 'Connect.kg',
 						code: 'https://github.com/Kirk-Terekhin/Connect',
@@ -170,6 +239,11 @@
 					},
 					{
 						src: publicPath + './images/Family.jpg',
+						gallery: [publicPath + './images/Family.jpg',
+										publicPath + './images/Family/Family_1.jpg',
+										publicPath + './images/Family/Family_2.jpg',
+										publicPath + './images/Family/Family_3.jpg',
+										publicPath + './images/Family/Family_4.jpg'],
 						alt: 'Family.kg',
 						name: 'Family.kg',
 						code: 'https://github.com/Kirk-Terekhin/Family',
@@ -178,16 +252,8 @@
 						tech: ['HTML5', 'CSS3', 'Bootstrap', 'Adaptive', 'Responsive', 'CMS Joomla']
 					},
 					{
-						src: publicPath + './images/Toe-to-Toes.jpg',
-						alt: 'Toe to Toes',
-						name: 'Toe to Toes',
-						code: 'https://github.com/Kirk-Terekhin/Landings/tree/gh-pages/logstyle/',
-						view: 'https://kirk-terekhin.github.io/Landings/logstyle',
-						desc: '...<br /> 2014',
-						tech: ['HTML5', 'CSS3']
-					},
-					{
 						src: publicPath + './images/DrumTab.jpg',
+						gallery: [publicPath + './images/DrumTab.jpg'],
 						alt: 'Drum Tab',
 						name: 'Drum Tab',
 						code: 'https://github.com/Kirk-Terekhin/Drum-Tab',
@@ -197,15 +263,27 @@
 					},
 					{
 						src: publicPath + './images/YgarockAPP.jpg',
+						gallery: [publicPath + './images/YgarockAPP.jpg'],
 						alt: 'YgarockAPP',
 						name: 'YgarockAPP',
 						code: 'https://github.com/Deathmetalldrummer/YgarockAPP/',
 						view: 'https://deathmetalldrummer.github.io/YgarockAPP/source/build/',
-						desc: '...<br />Сентябрь 2019',
+						desc: 'Не знаю для чего это веб-приложение, но ходят слухи, что оно показывает в каком из списков есть совпадения по поиску.<br />Сентябрь 2019',
 						tech: ['HTML5', 'CSS3', 'jQuery', 'Bootstrap']
 					}
 				]
 			}
+		},
+		methods: {
+			showGallery (gallery) {
+				if (gallery && gallery.length) {
+					this.isShowGallery = true
+					this.imagesForGallery = gallery
+				}
+			}
+		},
+		computed: {
+			mobile () { return this.$vuetify.breakpoint.width < 768 }
 		}
 	}
 </script>
@@ -219,8 +297,16 @@
     margin: auto
 
   .carouselItem__image
+    cursor: pointer
     margin: auto
     max-height: 90vh
     max-width: 100%
     display: block
+
+  .portfolioBox
+    position: relative
+  .imageGallery
+    position: fixed !important
+    @media (min-width: 768px)
+      position: absolute !important
 </style>

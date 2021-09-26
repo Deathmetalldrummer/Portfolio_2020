@@ -1,7 +1,7 @@
 <template lang="pug">
   div.timeline
-    v-timeline
-      v-timeline-item(v-for="item in experience" color="grey darken-1" icon-color="grey darken-4" icon="mdi--briefcase-outline")
+    v-timeline(:dense="mobileSM" :align-top="mobileSM")
+      v-timeline-item(v-for="item in experience" color="grey darken-1" icon-color="grey darken-4" icon="mdi--briefcase-outline" :small="mobile")
         span(slot="opposite").font-regular.particleLayer
           | {{item.from}}
           br
@@ -11,6 +11,9 @@
         v-card.elevation-10.particleLayer
           v-card-title.title {{item.company}}
           v-card-subtitle.subtitle-1 {{item.companyInfo}}
+            template(v-if="mobileSM")
+              .caption {{item.from}} - {{item.to}}
+              .caption {{item.sum}}
           v-card-text
             .headline {{item.position}}
             template(v-for="(desc,i) in item.description")
@@ -91,6 +94,14 @@
 						]
 					}
 				]
+			}
+		},
+		computed: {
+			mobile () {
+				return this.$vuetify.breakpoint.width < 768
+			},
+			mobileSM () {
+				return this.$vuetify.breakpoint.width < 1024
 			}
 		}
 	}
