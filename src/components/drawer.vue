@@ -9,7 +9,7 @@ div
       v-list-item.text-center
         v-list-item-content
           v-list-item-title.title Терёхин Кирилл
-          v-list-item-subtitle.subtitle HTML-программист
+          v-list-item-subtitle.subtitle HTML-программист =)
       v-list-item(v-for='item in items' :key='item.title' link :to="item.link")
         v-list-item-content
           v-list-item-title {{ item.title }}

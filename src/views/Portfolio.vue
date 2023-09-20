@@ -250,27 +250,27 @@
 						view: 'https://familykg.000webhostapp.com/',
 						desc: 'Дом отдыха "Семья". CMS Joomla.<br />2015',
 						tech: ['HTML5', 'CSS3', 'Bootstrap', 'Adaptive', 'Responsive', 'CMS Joomla']
-					},
-					{
-						src: publicPath + './images/DrumTab.jpg',
-						gallery: [publicPath + './images/DrumTab.jpg'],
-						alt: 'Drum Tab',
-						name: 'Drum Tab',
-						code: 'https://github.com/Kirk-Terekhin/Drum-Tab',
-						view: 'https://ragnarokdrum.stackblitz.io/list',
-						desc: 'Первое приложение на Angular (4v).Без стилей,только функционал.<br />Май 2017',
-						tech: ['HTML5', 'CSS3', 'Angular']
-					},
-					{
-						src: publicPath + './images/YgarockAPP.jpg',
-						gallery: [publicPath + './images/YgarockAPP.jpg'],
-						alt: 'YgarockAPP',
-						name: 'YgarockAPP',
-						code: 'https://github.com/Deathmetalldrummer/YgarockAPP/',
-						view: 'https://deathmetalldrummer.github.io/YgarockAPP/source/build/',
-						desc: 'Не знаю для чего это веб-приложение, но ходят слухи, что оно показывает в каком из списков есть совпадения по поиску.<br />Сентябрь 2019',
-						tech: ['HTML5', 'CSS3', 'jQuery', 'Bootstrap']
 					}
+					// {
+					// 	src: publicPath + './images/DrumTab.jpg',
+					// 	gallery: [publicPath + './images/DrumTab.jpg'],
+					// 	alt: 'Drum Tab',
+					// 	name: 'Drum Tab',
+					// 	code: 'https://github.com/Kirk-Terekhin/Drum-Tab',
+					// 	view: 'https://ragnarokdrum.stackblitz.io/list',
+					// 	desc: 'Первое приложение на Angular (4v).Без стилей,только функционал.<br />Май 2017',
+					// 	tech: ['HTML5', 'CSS3', 'Angular']
+					// },
+					// {
+					// 	src: publicPath + './images/YgarockAPP.jpg',
+					// 	gallery: [publicPath + './images/YgarockAPP.jpg'],
+					// 	alt: 'YgarockAPP',
+					// 	name: 'YgarockAPP',
+					// 	code: 'https://github.com/Deathmetalldrummer/YgarockAPP/',
+					// 	view: 'https://deathmetalldrummer.github.io/YgarockAPP/source/build/',
+					// 	desc: 'Не знаю для чего это веб-приложение, но ходят слухи, что оно показывает в каком из списков есть совпадения по поиску.<br />Сентябрь 2019',
+					// 	tech: ['HTML5', 'CSS3', 'jQuery', 'Bootstrap']
+					// }
 				]
 			}
 		},

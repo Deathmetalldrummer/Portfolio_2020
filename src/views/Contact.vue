@@ -4,7 +4,7 @@
         v-row(no-gutters).mb-5
           v-col(xs="12" sm="12" md="12")
             .display-2.particleLayer Контакты
-            .subtitle-1.particleLayer Звоните пишите!
+            //.subtitle-1.particleLayer Звоните пишите!
         v-row(no-gutters)
           v-col(xs="12" md="5" v-if="!mobileSM")
             .body-1(v-html="sendSuccess" v-if="sendSuccess")
@@ -50,7 +50,7 @@
                   v-list-item-title Telegram
                   v-list-item-subtitle kirk_terekhin
 
-              v-list-item.particleLayer
+              //v-list-item.particleLayer
                 v-list-item-icon
                   a(href="skype:kirk.terekhin" target="_blank").linkIcon
                     v-icon(large) mdi-skype
