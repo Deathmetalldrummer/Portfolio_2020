@@ -1,9 +1,9 @@
 <template lang="pug">
   .main
     h1.main__title Терёхин Кирилл
-    p.main__subtitle Frontend-разработчик
+    p.main__subtitle Angular Frontend-разработчик
     br
-    v-btn(outlined href="https://hh.ru/resume/23a4d105ff077b4cae0039ed1f58564b627876" target="_blank").particleLayer
+    v-btn(outlined href="https://hh.ru/resume/aabd3f94ff09e72b7d0039ed1f50446d4b6e33" target="_blank").particleLayer
       span.main__btnText Резюме
       v-icon mdi-launch
 
